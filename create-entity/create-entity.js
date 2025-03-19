@@ -49,7 +49,6 @@ console.log(TARGET_ENTITY_ID);
 (async () => {
   const entityId = await createEntity();
   if (entityId) {
-//await sleep(5000); 
     await grantPermission(entityId);
   }
 })();
