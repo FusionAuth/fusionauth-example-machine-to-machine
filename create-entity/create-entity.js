@@ -13,7 +13,7 @@ async function createEntity() {
   try {
     const response = await client.createEntity(null, {
       entity: {
-        name: 'ClockRadioForUser EXAMPLEUUID1',
+        name: 'ClockRadioForUser EXAMPLEUUID',
         data: { plan: 'basic', user_id:'EXAMPLEUUID' },
         type: {
           id: ENTITY_TYPE_ID
