@@ -4,7 +4,7 @@ import 'dotenv/config'
 const FUSIONAUTH_API_KEY = process.env.FUSIONAUTH_API_KEY;
 const BASE_URL = process.env.BASE_URL;
 const ENTITY_TYPE_ID = process.env.ENTITY_TYPE_ID;
-const TARGET_ENTITY_ID = '219f1e29-0df0-44d6-b269-ba7c9fe205a4';// process.env.TARGET_ENTITY_ID;
+const TARGET_ENTITY_ID = process.env.TARGET_ENTITY_ID;
 const PERMISSION = 'news';
 
 const client = new FusionAuthClient(FUSIONAUTH_API_KEY, BASE_URL);
@@ -31,7 +31,6 @@ async function createEntity() {
 
 async function grantPermission(entityId) {
   try {
-console.log(TARGET_ENTITY_ID);
     const req = {
       grant: {
         permissions: [PERMISSION],
@@ -40,7 +39,7 @@ console.log(TARGET_ENTITY_ID);
     }
     const response = await client.upsertEntityGrant(TARGET_ENTITY_ID, req);
     
-    console.log('Permission granted:', response.response);
+    console.log('Permission granted:', response);
   } catch (error) {
     console.error('Error granting permission:', JSON.stringify(error));
   }
