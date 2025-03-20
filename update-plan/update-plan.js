@@ -25,7 +25,21 @@ async function grantPermission(entityId) {
   }
 }
 
+async function updateEntity(entityId) {
+  try {
+    const response = await client.patchEntity(entityId, {
+      entity: {
+        data: { plan: 'premium' }
+      }
+    });
+    console.log('Entity updated:', response);
+  } catch (error) {
+    console.error('Error updating entity:', JSON.stringify(error));
+  }
+}
+
 (async () => {
+  await updateEntity(RECIPIENT_ENTITY_ID);
   await grantPermission(RECIPIENT_ENTITY_ID);
 })();
 
