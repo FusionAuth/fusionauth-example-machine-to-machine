@@ -44,6 +44,7 @@ async function requestAccessTokenFailure() {
   return access_token;
 }
 
+// tag::fetchNews
 async function fetchNews(access_token) {
   try {
     const response = await fetch(API_BASE_URL + '/api/news', {
@@ -64,6 +65,8 @@ async function fetchNews(access_token) {
     console.error('Error fetching news:', error);
   }
 }
+// end::fetchNews
+
 
 (async () => {
   let access_token = await requestAccessTokenSuccess();
