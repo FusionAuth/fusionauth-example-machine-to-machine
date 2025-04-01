@@ -18,10 +18,8 @@ const verifyJWT = async (req, res, next) => {
       console.log(access_token);
       const result = await jose.jwtVerify(access_token, jwksClient, {
         issuer: process.env.BASE_URL,
-        audience: process.env.CLIENT_ID,
+        audience: process.env.API_ENTITY_ID,
       });
-
-      // TODO test for permission of API
 
       req.verifiedToken = access_token;
       next();

@@ -3,11 +3,6 @@ const jose = require('jose');
 function hasPermission(apiEntityId, expectedPermission) {
   return (req, res, next) => {
     const decodedToken = jose.decodeJwt(req.verifiedToken);
-    console.log("test");
-    console.log(decodedToken);
-    console.log(decodedToken.permissions);
-    console.log(apiEntityId);
-    console.log(expectedPermission);
     if (checkPermission(decodedToken, apiEntityId, expectedPermission)) {
       return next();
     }
