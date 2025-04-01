@@ -71,7 +71,7 @@ async function fetchNews(access_token) {
 (async () => {
   let access_token = await requestAccessTokenSuccess();
   
-  console.log(access_token);
+  //console.log(access_token);
 
   fetchNews(access_token);
 

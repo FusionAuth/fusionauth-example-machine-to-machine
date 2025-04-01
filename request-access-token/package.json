@@ -2,11 +2,11 @@
   "name": "create-entity",
   "version": "1.0.0",
   "description": "",
-  "main": "update-plan.js",
+  "main": "request-news.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "get-token": "node request-access-token.js"
+    "request-news": "node request-news.js"
   },
   "author": "Dan Moore",
   "license": "Apache-2",
