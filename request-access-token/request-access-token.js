@@ -19,7 +19,9 @@ function buildScope(targetEntityId, permissionString) {
 async function requestAccessTokenSuccess() {
   let access_token = null;
   try {
-    const response = await client.clientCredentialsGrant(RECIPIENT_ENTITY_ID, RECIPIENT_ENTITY_SECRET, buildScope(TARGET_ENTITY_ID,PERMISSION)); 
+    const response = await client.clientCredentialsGrant(RECIPIENT_ENTITY_ID, 
+                                                         RECIPIENT_ENTITY_SECRET, 
+                                                         buildScope(TARGET_ENTITY_ID,PERMISSION)); 
     access_token = response.response.access_token;
   } catch (error) {
     console.error('Error getting access token:', JSON.stringify(error));
@@ -31,7 +33,9 @@ async function requestAccessTokenSuccess() {
 async function requestAccessTokenFailure() {
   let access_token = null;
   try {
-    const response = await client.clientCredentialsGrant(RECIPIENT_ENTITY_ID, RECIPIENT_ENTITY_SECRET, buildScope(TARGET_ENTITY_ID,INVALID_PERMISSION)); 
+    const response = await client.clientCredentialsGrant(RECIPIENT_ENTITY_ID, 
+                                                         RECIPIENT_ENTITY_SECRET, 
+                                                         buildScope(TARGET_ENTITY_ID,INVALID_PERMISSION)); 
     access_token = response.response.access_token;
   } catch (error) {
     console.error('Error getting access token:', JSON.stringify(error));
