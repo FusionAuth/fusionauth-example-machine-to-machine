@@ -11,6 +11,7 @@ const INVALID_PERMISSION = 'weather';
 
 const client = new FusionAuthClient(FUSIONAUTH_API_KEY, BASE_URL);
 
+// tag::requestAccessToken
 function buildScope(targetEntityId, permissionString) {
   return 'target-entity:'+targetEntityId+':'+permissionString;
 }
@@ -25,6 +26,7 @@ async function requestAccessTokenSuccess() {
   }
   return access_token;
 }
+// end::requestAccessToken
 
 async function requestAccessTokenFailure() {
   let access_token = null;
