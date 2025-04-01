@@ -3,6 +3,7 @@ import 'dotenv/config'
 
 const FUSIONAUTH_API_KEY = process.env.FUSIONAUTH_API_KEY;
 const BASE_URL = process.env.BASE_URL;
+const API_BASE_URL = process.env.API_BASE_URL;
 const RECIPIENT_ENTITY_ID = process.env.RECIPIENT_ENTITY_ID;
 const RECIPIENT_ENTITY_SECRET = process.env.RECIPIENT_ENTITY_SECRET;
 const TARGET_ENTITY_ID = process.env.TARGET_ENTITY_ID;
@@ -43,11 +44,36 @@ async function requestAccessTokenFailure() {
   return access_token;
 }
 
+async function fetchNews(access_token) {
+  try {
+    const response = await fetch(API_BASE_URL + '/api/news', {
+      method: 'GET',
+      headers: {
+        'Authorization': 'Bearer ' + access_token,
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error('Error fetching news:', error);
+  }
+}
+
 (async () => {
   let access_token = await requestAccessTokenSuccess();
+  
   console.log(access_token);
-  access_token = await requestAccessTokenFailure();
-  console.log(access_token);
+
+  fetchNews(access_token);
+
+  // access_token = await requestAccessTokenFailure();
+  // console.log(access_token);
 })();
 
 
