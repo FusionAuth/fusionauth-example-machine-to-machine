@@ -14,8 +14,7 @@ const verifyJWT = async (req, res, next) => {
     res.send({ error: 'Missing token cookie and Authorization header' });
   } else {
     try {
-      console.log("here2");
-      console.log(access_token);
+      // console.log(access_token);
       const result = await jose.jwtVerify(access_token, jwksClient, {
         issuer: process.env.BASE_URL,
         audience: process.env.API_ENTITY_ID,
