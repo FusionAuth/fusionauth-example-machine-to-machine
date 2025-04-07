@@ -24,7 +24,6 @@ const verifyJWT = async (req, res, next) => {
       next();
     } catch (e) {
       if (e instanceof jose.errors.JOSEError) {
-        console.log("here");
         res.status(401);
         res.send({ error: e.message, code: e.code });
       } else {
