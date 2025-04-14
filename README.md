@@ -1,6 +1,7 @@
 # Fusionauth Machine To Machine Example
 
-This repository contains sample code for the machine to machine communication use case.
+Test repo, no longer maintained.
 
-Learn more here: https://fusionauth.io/docs/get-started/use-cases/machine-to-machine
+Read all about machine to machine communication in FusionAuth here:
 
+https://fusionauth.io/docs/get-started/use-cases/machine-to-machine
