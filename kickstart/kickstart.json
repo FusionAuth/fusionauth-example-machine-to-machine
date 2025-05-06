@@ -65,6 +65,7 @@
             "favoriteColor": "turquoise"
           }
         }
+      }
     },
     {
       "method": "POST",
@@ -91,6 +92,7 @@
         "permission": {
           "name": "news"
         }
+      }
     },
     {
       "method": "POST",
