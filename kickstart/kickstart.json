@@ -1,15 +1,12 @@
 {
   "variables": {
     "apiKey": "33052c8a-c283-4e96-9d2a-eb1215c69f8f-not-for-prod",
-    "applicationId": "e9fdb985-9173-4e01-9d73-ac2d60d1dc8e",
+    "asymmetricKeyId": "#{UUID()}",
     "clientSecret": "super-secret-secret-that-should-be-regenerated-for-production",
     "defaultTenantId": "d7d09513-a3f5-401c-9685-34ab6c552453",
     "adminEmail": "admin@example.com",
     "adminPassword": "password",
     "adminUserId": "00000000-0000-0000-0000-000000000001",
-    "userEmail": "richard@example.com",
-    "userPassword": "password",
-    "userUserId": "00000000-0000-0000-0000-111111111111",
     "apiTypeEntityTypeId": "e2aa0532-c72c-4267-9884-07c5c70b2001",
     "radioEntityTypeId": "2bf5353e-cb6d-46ba-ba38-77e43a1c764f",
     "apiEntityId": "dc99eb28-006c-480e-9854-f2d68cd72dcb"
@@ -22,6 +19,29 @@
   ],
   "licenseId": "LICENSE ID",
   "requests": [
+    {
+      "method": "POST",
+      "url": "/api/key/generate/#{asymmetricKeyId}",
+      "tenantId": "#{defaultTenantId}",
+      "body": {
+        "key": {
+          "algorithm": "RS256",
+          "name": "For tenant",
+          "length": 2048
+        }
+      }
+    },
+    {
+      "method": "PATCH",
+      "url": "/api/tenant/#{defaultTenantId}",
+      "body": {
+        "tenant": {
+          "jwtConfiguration" : {
+            "accessTokenKeyId": "#{asymmetricKeyId}"
+          }
+        }
+      }
+    },
     {
       "method": "POST",
       "url": "/api/user/registration/#{adminUserId}",
@@ -45,25 +65,6 @@
           "firstName": "Admin",
           "lastName": "Example",
           "password": "#{adminPassword}"
-        }
-      }
-    },
-    {
-      "method": "POST",
-      "url": "/api/user/registration/#{userUserId}",
-      "body": {
-        "user": {
-          "birthDate": "1985-11-23",
-          "email": "#{userEmail}",
-          "firstName": "Richard",
-          "lastName": "Hendricks",
-          "password": "#{userPassword}"
-        },
-        "registration": {
-          "applicationId": "#{applicationId}",
-          "data": {
-            "favoriteColor": "turquoise"
-          }
         }
       }
     },
@@ -108,6 +109,7 @@
       "url": "/api/entity/#{apiEntityId}",
       "body": {
         "entity": {
+          "name": "API",
           "type": {
             "id": "#{apiTypeEntityTypeId}"
           }
