@@ -58,6 +58,7 @@ Run the script, which will request the access token from FusionAuth and then the
 
 ```shell
 cd request-api
+npm install
 npm run request-news
 ```
 
