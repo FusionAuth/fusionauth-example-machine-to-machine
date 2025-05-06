@@ -16,7 +16,7 @@ The `request-api` directory contains a script that can be used to make a request
 
 The `update-plan` directory contains a script that can update the plan for a given entity.
 
-The `create-entity` directory contains a FusionAuth SDK script to create entities instead of using Kickstart. It can safely be ignored.
+The `create-entity` directory contains a FusionAuth SDK script to create entities instead of using Kickstart (or in addition to). It can safely be ignored.
 
 ## Project Dependencies
 
