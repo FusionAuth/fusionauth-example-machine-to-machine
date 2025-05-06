@@ -61,4 +61,4 @@ cd request-api
 npm run request-news
 ```
 
-If you want to log into the FusionAuth admin UI and look around, do so by logging into http://localhost:9011 with the username `admin@example.com` and hte password `password`.
+If you want to log into the FusionAuth admin UI and look around, do so by logging into http://localhost:9011 with the username `admin@example.com` and the password `password`.
