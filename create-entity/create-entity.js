@@ -11,10 +11,11 @@ const client = new FusionAuthClient(FUSIONAUTH_API_KEY, BASE_URL);
 
 async function createEntity() {
   try {
+    const EXAMPLEUUID = 'EXAMPLEUUID';
     const response = await client.createEntity(null, {
       entity: {
-        name: 'ClockRadioForUser EXAMPLEUUID',
-        data: { plan: 'basic', user_id:'EXAMPLEUUID' },
+        name: 'ClockRadioForUser ' + EXAMPLEUUID,
+        data: { plan: 'basic', user_id: EXAMPLEUUID },
         type: {
           id: ENTITY_TYPE_ID
         }
