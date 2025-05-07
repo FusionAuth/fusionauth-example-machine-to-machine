@@ -6,7 +6,6 @@ function hasPermission(apiEntityId, expectedPermission) {
     if (checkPermission(decodedToken, apiEntityId, expectedPermission)) {
       return next();
     }
-    // if (permissions.some((permission) => decodedToken.permissions.includes(permission))) return next();
     res.status(403);
     res.send({ error: `You do not have permissions to do this.` });
   }
