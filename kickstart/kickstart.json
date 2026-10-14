@@ -13,7 +13,6 @@
     "radioEntityId": "f1ae8766-a4d8-4a92-acb6-869e47e9f38e",
     "radioEntitySecret": "qEbs2ssy3qoOqSaMYRCEUgvlqUdwOzajEaFScGjg",
     "issuerURL": "http://localhost:9011"
-
   },
   "apiKeys": [
     {
@@ -26,7 +25,6 @@
     {
       "method": "POST",
       "url": "/api/key/generate/#{asymmetricKeyId}",
-      "tenantId": "#{defaultTenantId}",
       "body": {
         "key": {
           "algorithm": "RS256",
@@ -40,7 +38,7 @@
       "url": "/api/tenant/#{defaultTenantId}",
       "body": {
         "tenant": {
-          "jwtConfiguration" : {
+          "jwtConfiguration": {
             "accessTokenKeyId": "#{asymmetricKeyId}"
           },
           "issuer": "#{issuerURL}"
@@ -139,7 +137,9 @@
       "url": "/api/entity/#{apiEntityId}/grant",
       "body": {
         "grant": {
-          "permissions": ["news"],
+          "permissions": [
+            "news"
+          ],
           "recipientEntityId": "#{radioEntityId}"
         }
       }

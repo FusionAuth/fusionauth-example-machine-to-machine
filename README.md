@@ -1,5 +1,8 @@
 # Example Machine To Machine Applicaion
 
+> [!WARNING]
+> This repository is generated from content that lives at [github.com/FusionAuth/fusionauth-site](https://github.com/FusionAuth/fusionauth-site/tree/main/astro/extractedcode/example-machine-to-machine). Changes to files here _will be overwritten by that automation_. File an issue or pull request with [fusionauth-site](https://github.com/FusionAuth/fusionauth-site) instead.
+
 This repo shows you how to use FusionAuth for a machine to machine scenario, where you have devices represented as entities inside FusionAuth, with permissions  modeled between them.
 
 This application will use an OAuth Client Credentials Grant workflow to request an access token. The access token will be used to make a request against an APIs to retrieve news or weather information.
